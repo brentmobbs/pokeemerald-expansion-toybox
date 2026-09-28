@@ -60,7 +60,7 @@ Decisions are only filled in after the owner agrees to them.
 |---|---|---|
 | Base | pokeemerald-expansion (rh-hideout), `master` branch | 2026-09-28 |
 | Game version built | Emerald | 2026-09-28 |
-| Feature sources | Expansion's own features, plus Heart & Soul's randomizer and the Traits system (bassforte123's Traits and Items branch). No Rogue or Elite Redux code. Multi-Items: TBD. | 2026-09-28 |
+| Feature sources | Expansion's own features, plus Heart & Soul's randomizer and the Traits system (bassforte123's Traits and Items branch). No Rogue or Elite Redux code. No Multi-Items (one held item). | 2026-09-28 |
 
 ## Open questions
 

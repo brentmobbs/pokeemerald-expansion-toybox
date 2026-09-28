@@ -5,7 +5,7 @@ The plan for the hack. Claude reads this at the start of every session and keeps
 ## Status
 
 Setup done. Order of work, set by the owner:
-1. Research features from a list of other hacks the owner will provide (which ones expansion already has, which to port).
+1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Owner picks next.
 2. Integrate features. Having lots of features is the hack's main draw.
 3. Only then: region and story.
 

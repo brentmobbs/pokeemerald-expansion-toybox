@@ -24,6 +24,10 @@ This is a Pokémon ROM hack built on rh-hideout/pokeemerald-expansion. The owner
 - Build: `make -j$(nproc) all` produces `pokeemerald.gba` (about 3.5 minutes from clean).
 - GitHub Actions (`.github/workflows/build-rom.yml`) builds every push and uploads the ROM as an artifact.
 
+## Spreadsheet
+
+- `docs/hack/fusion_stats.xlsx` holds base and fusion stats. Rebuild it with `python3 hack/make_fusion_sheet.py` (needs `pip install openpyxl`), then recalculate with LibreOffice (`apt-get install libreoffice-calc`).
+
 ## Pulling upstream updates
 
 ```

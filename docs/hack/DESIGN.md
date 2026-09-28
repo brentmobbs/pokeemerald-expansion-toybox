@@ -51,8 +51,12 @@ By original generation: Gen 1: 14, Gen 2: 19, Gen 3: 19.
 
 ## Fusion rules
 
+All stats are calculated in `docs/hack/fusion_stats.xlsx` (built by `hack/make_fusion_sheet.py`). That sheet is the source of truth for importing species.
+
+
 - Types: a fusion has both parents' types (e.g. Growlithe + Mudkip = Fire/Water). Same-type parents give a single type.
 - Stats: for each stat separately, fusion = (2 x higher parent's stat + 1 x lower parent's stat) / 3, rounded to the nearest whole number. Example: Growlithe + Mudkip = 53 HP / 70 Atk / 48 Def / 63 SpA / 50 SpD / 53 Spe.
+- Rounding: stats are scaled, then rounded down; the points still missing go one each to the stats that lost the most in rounding (ties: earlier stat first), so totals are exact. The 2/3 + 1/3 mix isn't rounded before scaling.
 - BST: bases are scaled to exactly 400 BST. Fusions: calculate stats with the rule above, then scale to 500 BST. The fusion calculation uses the bases' 400-scaled stats (owner, 2026-09-28).
 - Abilities: each base gets one ability, picked from a pool. A fusion's 3 ability slots = parent A's ability, parent B's ability, and one extra ability picked from a large pool based on its type combination. All three abilities are active at the same time (owner, 2026-09-28); see Pinned. Pools: TBD.
 

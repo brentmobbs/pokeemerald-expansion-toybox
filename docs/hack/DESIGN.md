@@ -49,6 +49,8 @@ By original generation: Gen 1: 14, Gen 2: 19, Gen 3: 19.
 
 - Types: a fusion has both parents' types (e.g. Growlithe + Mudkip = Fire/Water). Same-type parents give a single type.
 - Stats: for each stat separately, fusion = (2 x higher parent's stat + 1 x lower parent's stat) / 3, rounded to the nearest whole number. Example: Growlithe + Mudkip = 53 HP / 70 Atk / 48 Def / 63 SpA / 50 SpD / 53 Spe.
+- BST: every Pokémon's stats are scaled so all have the same base stat total. Target BST: TBD.
+- Abilities: each base gets one ability, picked from a pool. A fusion's 3 ability slots = parent A's ability, parent B's ability, and one extra ability picked from a large pool based on its type combination. Assumed: one ability active at a time, like normal Pokémon (not multi-ability). Pools: TBD.
 
 ## Big decisions
 

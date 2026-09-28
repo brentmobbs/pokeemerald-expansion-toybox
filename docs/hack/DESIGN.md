@@ -5,7 +5,7 @@ The plan for the hack. Claude reads this at the start of every session and keeps
 ## Status
 
 Setup done. Order of work, set by the owner:
-1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Owner picks next.
+1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Decided: only Heart & Soul's randomizer is ported; everything else comes from expansion.
 2. Integrate features. Having lots of features is the hack's main draw.
 3. Only then: region and story.
 
@@ -25,6 +25,7 @@ Decisions are only filled in after the owner agrees to them.
 |---|---|---|
 | Base | pokeemerald-expansion (rh-hideout), `master` branch | 2026-09-28 |
 | Game version built | Emerald | 2026-09-28 |
+| Feature sources | Expansion's own features, plus Heart & Soul's randomizer only. No Traits/Items, Rogue, or Elite Redux code. | 2026-09-28 |
 
 ## Open questions
 
@@ -37,7 +38,7 @@ Decisions are only filled in after the owner agrees to them.
 
 - What is the hack about? (story, region, starters)
 - New region with new maps, or a remix of Hoenn?
-- Which expansion features to turn on (for example DexNav, followers, difficulty options, level caps)?
+- Which expansion features to turn on: decided one at a time as we go.
 
 ## Species budget
 

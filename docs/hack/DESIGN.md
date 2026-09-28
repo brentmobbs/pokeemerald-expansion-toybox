@@ -14,7 +14,7 @@ Setup done. Order of work, set by the owner:
 - Title: TBD
 - Premise / story: new story (later)
 - Region / setting: new region (later)
-- Pokémon: 64 first-stage Pokémon. Any two can fuse, giving 2016 fusions (64 x 63 / 2). Sprites come from the Pokémon Infinite Fusion project.
+- Pokémon: 54 first-stage bases. Any two different bases can fuse (A+B = B+A), giving 1431 fusions (54 x 53 / 2). 1485 species in total. Sprites come from the Pokémon Infinite Fusion project.
 - Tone and difficulty: TBD
 
 ## Big decisions
@@ -29,10 +29,10 @@ Decisions are only filled in after the owner agrees to them.
 ## Open questions
 
 - Decided (owner, 2026-09-28): Option A. Remove expansion's species to free IDs, and make every fusion its own species. Upstream merges will get harder; accepted.
-- Decided: the Pokédex has 64 entries (the bases), not one per fusion.
-- Problem: 64 bases + 2016 fusions = 2080 species, but the last usable ID is 2046. 34 too many. Waiting on owner: 63 bases (63 + 1953 fusions = 2016, fits), fewer fusions, or widening the save's species field (hard).
-- Pokédex save space: fine with 64 entries.
-- ROM space: the ROM is 80% full now. About 2000 fusions' sprites need several MB, so unused expansion species graphics will likely have to be turned off.
+- Decided: the Pokédex has 54 entries (the bases), not one per fusion.
+- Decided (2026-09-28): 54 bases. 54 + 1431 fusions = 1485 species, which fits under the 2046 cap with 561 IDs to spare.
+- Pokédex save space: fine with 54 entries.
+- ROM space: the ROM is 80% full now. About 1500 fusions' sprites need several MB, so unused expansion species graphics will likely have to be turned off.
 - Infinite Fusion sprites are made by many fan artists. Check their reuse rules and credit the artists. They also need resizing to 64x64 with 16 colors.
 
 - What is the hack about? (story, region, starters)
@@ -44,8 +44,8 @@ Decisions are only filled in after the owner agrees to them.
 - Expansion currently uses species IDs 1 to 1572 (this counts forms and Megas).
 - Custom species go after that, starting at 1573.
 - Hard limit: the save format stores species in 11 bits, so the last usable ID is 2046 (ID 2047 is taken by the Egg). That leaves room for 474 custom species.
-- Owner's first plan was about 2016 slots in total (about 443 custom species). The fusion plan (see Open questions) replaces this and does not fit as separate species.
-- Claude warns the owner before any change would pass ID 2015, and the build refuses to compile past 2046 (`src/hack_limits.c`).
+- Plan: 1485 species (54 bases + 1431 fusions), replacing expansion's species (Option A). 561 spare IDs for anything extra.
+- Claude warns the owner before any change would pass the planned 1485 species, and the build refuses to compile past 2046 (`src/hack_limits.c`).
 - Upstream updates can add new species. That shrinks our budget and shifts custom IDs, which breaks saves. Check this on every upstream update.
 - Save space is the other limit. Free space measured on 2026-09-28: SaveBlock1 304 bytes, SaveBlock2 84 bytes, SaveBlock3 1620 bytes. Each new National Dex number costs 2 bits in SaveBlock1 (seen + caught), so 443 new dex entries cost about 112 bytes. Forms and Megas without their own dex number cost nothing here. Features that add save data (new flags, vars, DexNav, etc.) share this space. The build fails if a block overflows.
 - `USE_DEXNAV_SEARCH_LEVELS` must stay off (it costs 1 save byte per species). The build enforces this.

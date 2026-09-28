@@ -1,0 +1,59 @@
+# Builds the ROM and uploads it as a downloadable artifact.
+# The built .gba is never committed to the repo (.gitignore blocks *.gba).
+name: Build ROM
+
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: bash hack/setup_env.sh
+
+      - name: Cache build tools
+        uses: actions/cache@v4
+        with:
+          path: |
+            tools/bin2c/bin2c
+            tools/gbafix/gbafix
+            tools/gbagfx/gbagfx
+            tools/jsonproc/jsonproc
+            tools/mapjson/mapjson
+            tools/mid2agb/mid2agb
+            tools/preproc/preproc
+            tools/ramscrgen/ramscrgen
+            tools/rsfont/rsfont
+            tools/scaninc/scaninc
+            tools/trainerproc/trainerproc
+            tools/compresSmol/compresSmol
+            tools/compresSmol/compresSmolTilemap
+            tools/wav2agb/wav2agb
+          key: tools-${{ runner.os }}-${{ hashFiles('tools/*/Makefile', 'tools/**/*.c', 'tools/**/*.cpp', 'tools/**/*.h') }}
+
+      - name: Build ROM
+        run: make -j$(nproc) -O all
+
+      - name: Name the ROM after the branch and commit
+        id: name
+        run: |
+          branch="${GITHUB_REF_NAME//\//-}"
+          name="rom-${branch}-${GITHUB_SHA::7}"
+          mkdir out
+          cp pokeemerald.gba "out/${name}.gba"
+          echo "name=${name}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload ROM
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.name.outputs.name }}
+          path: out/*.gba
+          retention-days: 90
+          if-no-files-found: error

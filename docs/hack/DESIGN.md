@@ -6,6 +6,7 @@ The plan for the hack. Claude reads this at the start of every session and keeps
 
 Setup done. Order of work, set by the owner:
 1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Decided: only Heart & Soul's randomizer is ported; everything else comes from expansion.
+2. Next: fusion roster (remove expansion's species, add 54 bases + 1431 fusions with placeholder sprites). Then port the randomizer.
 2. Integrate features. Having lots of features is the hack's main draw.
 3. Only then: region and story.
 

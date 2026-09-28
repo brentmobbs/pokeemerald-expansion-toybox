@@ -8,6 +8,7 @@ This is a Pokémon ROM hack built on rh-hideout/pokeemerald-expansion. The owner
 2. Keep both up to date. Every change the owner will test gets a CHANGELOG entry that says whether it breaks existing saves.
 3. Ask the owner before any big design decision. Don't guess.
 4. Explain things in plain, short language. The owner is a beginner.
+5. Ask the owner one question at a time.
 
 ## Rules
 

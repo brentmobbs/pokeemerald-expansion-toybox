@@ -5,10 +5,14 @@ The plan for the hack. Claude reads this at the start of every session and keeps
 ## Status
 
 Setup done. Order of work, set by the owner:
-1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Decided: port Heart & Soul's randomizer and the Traits system; everything else comes from expansion.
+1. Research features from other hacks: Heart & Soul, Emerald Rogue, Elite Redux. Results in `FEATURE_RESEARCH.md`. Decided: port Heart & Soul's randomizer; everything else comes from expansion.
 2. Next: fusion roster (remove expansion's species, add 52 bases + 1326 fusions with placeholder sprites). Then port the randomizer.
-2. Integrate features. Having lots of features is the hack's main draw.
-3. Only then: region and story.
+3. Integrate features. Having lots of features is the hack's main draw.
+4. Only then: region and story.
+
+## Pinned
+
+- Multiple active abilities (a fusion's 3 abilities all active). Required feature. Not using the Traits add-on: it targets expansion 1.16.2 and merging into 1.17 hit ~450 conflicts. Plan: build our own on expansion later (Traits and Elite Redux can serve as references), or find another solution. Until then, fusions store their 3 abilities in the normal ability slots.
 
 ## Concept
 
@@ -50,7 +54,7 @@ By original generation: Gen 1: 14, Gen 2: 19, Gen 3: 19.
 - Types: a fusion has both parents' types (e.g. Growlithe + Mudkip = Fire/Water). Same-type parents give a single type.
 - Stats: for each stat separately, fusion = (2 x higher parent's stat + 1 x lower parent's stat) / 3, rounded to the nearest whole number. Example: Growlithe + Mudkip = 53 HP / 70 Atk / 48 Def / 63 SpA / 50 SpD / 53 Spe.
 - BST: bases are scaled to exactly 400 BST. Fusions: calculate stats with the rule above, then scale to 500 BST. The fusion calculation uses the bases' 400-scaled stats (owner, 2026-09-28).
-- Abilities: each base gets one ability, picked from a pool. A fusion's 3 ability slots = parent A's ability, parent B's ability, and one extra ability picked from a large pool based on its type combination. All three abilities are active at the same time (owner, 2026-09-28). Done with the Traits system. Pools: TBD.
+- Abilities: each base gets one ability, picked from a pool. A fusion's 3 ability slots = parent A's ability, parent B's ability, and one extra ability picked from a large pool based on its type combination. All three abilities are active at the same time (owner, 2026-09-28); see Pinned. Pools: TBD.
 
 ## Big decisions
 
@@ -60,7 +64,7 @@ Decisions are only filled in after the owner agrees to them.
 |---|---|---|
 | Base | pokeemerald-expansion (rh-hideout), `master` branch | 2026-09-28 |
 | Game version built | Emerald | 2026-09-28 |
-| Feature sources | Expansion's own features, plus Heart & Soul's randomizer and the Traits system (bassforte123's Traits and Items branch). No Rogue or Elite Redux code. No Multi-Items (one held item). | 2026-09-28 |
+| Feature sources | Expansion's own features, plus Heart & Soul's randomizer. No Traits, Rogue, or Elite Redux code. One held item per Pokémon. | 2026-09-28 |
 
 ## Open questions
 

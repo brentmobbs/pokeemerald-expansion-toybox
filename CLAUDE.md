@@ -13,7 +13,7 @@ This is a Pokémon ROM hack built on rh-hideout/pokeemerald-expansion. The owner
 ## Rules
 
 - Never commit an original Pokémon ROM or a built ROM (`*.gba` is in `.gitignore`).
-- Species: plan is 54 bases + 1431 fusions = 1485 species (see DESIGN.md). Warn the owner before going past that. Hard cap is 2046, enforced by `src/hack_limits.c`.
+- Species: plan is 52 monotype bases + 1326 fusions = 1378 species (see DESIGN.md). Warn the owner before going past that. Hard cap is 2046, enforced by `src/hack_limits.c`.
 - Never enable `USE_DEXNAV_SEARCH_LEVELS`.
 - Use placeholder graphics for new species until the owner supplies sprites.
 - Hack-specific files live in `docs/hack/`, `hack/`, and `src/hack_limits.c`. Prefer config options in `include/config/` over editing engine code, so upstream updates merge cleanly.

@@ -28,12 +28,10 @@ Decisions are only filled in after the owner agrees to them.
 
 ## Open questions
 
-- Fusion count: are there 2016 dex entries (fusions only) or 2080 (fusions plus the 64 bases)? Can a Pokémon fuse with itself? Is A+B the same as B+A?
-- Species ID problem: expansion already uses IDs 1 to 1572, and the save format caps IDs at 2047. 2016 fusions as separate species don't fit. Options:
-  - A: remove most of expansion's species to free IDs (big engine edit, painful upstream merges).
-  - B: store a fusion as "base species + partner" (like Infinite Fusion does), so only the 64 bases need IDs (engine work on save data, stats, sprites, Pokédex).
-  - Waiting on the owner's choice.
-- Pokédex save space: 2080 entries need about 520 bytes of seen/caught flags. Only about 562 are available if expansion's own dex is replaced. Tight.
+- Decided (owner, 2026-09-28): Option A. Remove expansion's species to free IDs, and make every fusion its own species. Upstream merges will get harder; accepted.
+- Decided: the Pokédex has 64 entries (the bases), not one per fusion.
+- Problem: 64 bases + 2016 fusions = 2080 species, but the last usable ID is 2046. 34 too many. Waiting on owner: 63 bases (63 + 1953 fusions = 2016, fits), fewer fusions, or widening the save's species field (hard).
+- Pokédex save space: fine with 64 entries.
 - ROM space: the ROM is 80% full now. About 2000 fusions' sprites need several MB, so unused expansion species graphics will likely have to be turned off.
 - Infinite Fusion sprites are made by many fan artists. Check their reuse rules and credit the artists. They also need resizing to 64x64 with 16 colors.
 

@@ -3,7 +3,7 @@
 Research into hacks the owner picked as feature sources. Done 2026-09-28.
 Our base: pokeemerald-expansion 1.17 (master).
 
-Owner's decision (2026-09-28): port only Heart & Soul's randomizer. All other features come from expansion itself.
+Owner's decision (2026-09-28): port Heart & Soul's randomizer and the Traits system. All other features come from expansion itself.
 
 Randomizer port notes: `src/randomizer.c` (~1350 lines) plus data tables, a config file, 11 files with hooks (wild, trainer, items, starters, eggs, abilities, moves, evolutions, types, stats, type chart), settings bits in SaveBlock3, and its page of the new-game challenge menu (`src/challenge_menu.c`). Its species tables (starters, legendaries, baby Pokémon, gen scope) must be rewritten for the fusion roster.
 

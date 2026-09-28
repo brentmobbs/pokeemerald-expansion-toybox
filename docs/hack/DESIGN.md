@@ -36,6 +36,7 @@ Decisions are only filled in after the owner agrees to them.
 - Owner's plan: about 2016 slots in total, so about 443 custom species (IDs 1573 to 2015). That fits.
 - Claude warns the owner before any change would pass ID 2015, and the build refuses to compile past 2046 (`src/hack_limits.c`).
 - Upstream updates can add new species. That shrinks our budget and shifts custom IDs, which breaks saves. Check this on every upstream update.
+- Save space is the other limit. Free space measured on 2026-09-28: SaveBlock1 304 bytes, SaveBlock2 84 bytes, SaveBlock3 1620 bytes. Each new National Dex number costs 2 bits in SaveBlock1 (seen + caught), so 443 new dex entries cost about 112 bytes. Forms and Megas without their own dex number cost nothing here. Features that add save data (new flags, vars, DexNav, etc.) share this space. The build fails if a block overflows.
 - `USE_DEXNAV_SEARCH_LEVELS` must stay off (it costs 1 save byte per species). The build enforces this.
 
 ## Graphics

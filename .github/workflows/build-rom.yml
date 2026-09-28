@@ -8,6 +8,14 @@ on:
       - '**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+# A newer push to the same branch cancels the older, unfinished build.
+concurrency:
+  group: build-rom-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
